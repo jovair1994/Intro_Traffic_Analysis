@@ -37,7 +37,7 @@ cat << EOF >> /opt/run.sh
 
 while true; do
 
-curl -s 172.17.0.2
+curl -s http://172.17.0.2:8000/
 
 done
 
