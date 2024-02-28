@@ -11,6 +11,12 @@ apt install xfce4 xfce4-goodies -y
 apt install xrdp -y
 sudo systemctl enable xrdp
 
+cat << EOF >> /etc/hosts 
+
+172.17.0.2      portainer.local
+
+EOF
+
 cat << EOF > /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf
 polkit.addRule(function(action, subject) {
  if ((action.id == "org.freedesktop.color-manager.create-device" ||
@@ -90,6 +96,7 @@ echo -e 'root:sn1ff3r@2024' | chpasswd
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
+echo 'sniffer ALL=(ALL:ALL) NOPASSWD: /usr/bin/tcpdump' >> /etc/sudoers
 
 rm -rf /etc/hosts/root/.cache
 rm -rf /root/.viminfo
