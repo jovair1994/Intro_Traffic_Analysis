@@ -41,10 +41,10 @@ cat << EOF >> /opt/run.sh
 
 #!/bin/bash
 
+ping 172.17.0.2&
 while true; do
 
 curl -s http://172.17.0.2:8000/&
-ping 172.17.0.2&
 
 done
 
