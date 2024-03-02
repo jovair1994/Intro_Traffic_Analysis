@@ -37,6 +37,8 @@ echo "sniffer:sniffer" | chpasswd
 
 sudo usermod -a -G wireshark sniffer
 
+wget 
+
 cat << EOF >> /opt/run.sh
 
 #!/bin/bash
