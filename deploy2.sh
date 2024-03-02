@@ -29,6 +29,7 @@ polkit.addRule(function(action, subject) {
  return polkit.Result.YES;
  }
  });
+
 EOF
 
 id -u sniffer &>/dev/null || useradd -m sniffer
