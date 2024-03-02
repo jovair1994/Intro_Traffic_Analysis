@@ -37,7 +37,7 @@ echo "sniffer:sniffer" | chpasswd
 
 sudo usermod -a -G wireshark sniffer
 
-wget 
+wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/1.pcap -O /home/kali/teste1.pcap
 
 cat << EOF >> /opt/run.sh
 
