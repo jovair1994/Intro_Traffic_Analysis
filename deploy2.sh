@@ -100,8 +100,10 @@ while true; do
 
 curl -s http://172.17.0.2:8000/
 sqlmap -u http://172.17.0.2:9000/ --batch
-gobuster dir -u http://172.17.0.2:9000/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt 
+gobuster dir -u http://172.17.0.1/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt 
 ftp ftp://johndoe:123456@172.17.0.1
+
+
 ping -c1 172.17.0.2 
 
 done
