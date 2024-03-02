@@ -47,6 +47,27 @@ docker run \
         --volume /data:/home/kali \
         garethflowers/ftp-server
 
+rm /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+
+cat << EOF >> /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+
+index
+images
+download
+2006
+news
+crack
+serial
+warez
+full
+12
+contact
+about
+search
+spacer
+privacy
+
+EOF
 
 cat << EOF >> /opt/run.sh
 
@@ -56,6 +77,8 @@ while true; do
 
 curl -s http://172.17.0.2:8000/
 sqlmap -u http://172.17.0.2:9000/ --batch
+gobuster dir -u http://172.17.0.2:9000/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt 
+ftp ftp://johndoe:123456@172.17.0.1
 ping -c1 172.17.0.2 
 
 done
