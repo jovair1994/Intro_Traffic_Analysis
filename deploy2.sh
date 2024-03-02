@@ -37,16 +37,14 @@ echo "sniffer:sniffer" | chpasswd
 
 sudo usermod -a -G wireshark sniffer
 
-wget 
-
 docker run \            
         --detach \
-        --env FTP_PASS=123 \
-        --env FTP_USER=user \
+        --env FTP_PASS=kali \
+        --env FTP_USER=kali \
         --name my-ftp-server \
         --publish 20-21:20-21/tcp \
         --publish 40000-40009:40000-40009/tcp \
-        --volume /data:/home/user \
+        --volume /data:/home/kali \
         garethflowers/ftp-server
 
 
