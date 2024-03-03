@@ -55,8 +55,8 @@ EOF
 
 docker run \
     --detach \
-    --env FTP_PASS=kali \
-    --env FTP_USER=kali \
+    --env FTP_PASS=123456 \
+    --env FTP_USER=jonhdoe \
     --name my-ftp-server \
     --publish 20-21:20-21/tcp \
     --publish 40000-40009:40000-40009/tcp \
