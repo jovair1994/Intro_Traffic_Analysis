@@ -40,19 +40,6 @@ echo "sniffer:sniffer" | chpasswd
 
 sudo usermod -a -G wireshark sniffer
 
-mkdir /opt/nessus
-mkdir /opt/nessus/var/
-mkdir /opt/nessus/var/nessus/
-mkdir /opt/nessus/var/nessus/users/
-mkdir /opt/nessus/var/nessus/users/kali
-touch /opt/nessus/var/nessus/users/kali/auth
-
-cat << EOF >> /opt/nessus/var/nessus/users/kali/auth
-
-30e85221a3b1d789ad85b680d8e579a45b229ad19dbead83df80e36f387b50b8a6af6675a45b6e05dcf4c85671e2ca91304392f433cb9120a98dd0a61d33c499 da51259ba803fee35a27c39f9a6580b3 v3
-
-EOF
-
 docker run \
     --detach \
     --env FTP_PASS=123456 \
