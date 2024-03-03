@@ -3,7 +3,7 @@
 
 set -e
 apt-get update
-apt install docker.io git python3-pip python3 curl openssh-server wireshark gobuster -y 
+apt install docker.io git python3-pip python3 curl openssh-server wireshark -y 
 
 echo "[ ] Install RDP"
 
