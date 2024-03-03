@@ -11,6 +11,8 @@ apt install xfce4 xfce4-goodies -y
 apt install xrdp -y
 sudo systemctl enable xrdp
 
+wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/ftp.pcapng -O /home/kali/ftp.pcapng
+
 cat << EOF >> /etc/hosts 
 
 172.17.0.2      portainer.local
