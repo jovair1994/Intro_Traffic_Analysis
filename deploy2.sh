@@ -13,6 +13,10 @@ sudo systemctl enable xrdp
 
 wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/ftp.pcapng -O /home/kali/ftp.pcapng
 
+wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/rdp.pcap -O /home/kali/rdp.pcap
+
+wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/image.pcap -O /home/kali/image.pcap
+
 cat << EOF >> /etc/hosts 
 
 172.17.0.2      portainer.local
@@ -34,10 +38,6 @@ polkit.addRule(function(action, subject) {
 
 EOF
 
-id -u sniffer &>/dev/null || useradd -m sniffer
-
-echo "sniffer:sniffer" | chpasswd
-
 sudo usermod -a -G wireshark sniffer
 
 docker run \
@@ -51,50 +51,6 @@ docker run \
     garethflowers/ftp-server
 
 
-cat << EOF >> /opt/docker-compose.yml
-
-version: '2'
-services:
-  web:
-    image: vulhub/cmsms:2.2.9.1
-    ports:
-     - "80:80"
-    depends_on:
-     - db
-  db:
-   image: mysql:5.7
-   environment:
-    - MYSQL_ROOT_PASSWORD=root
-    - MYSQL_DATABASE=cmsms
-
-EOF
-
-cd /opt/
-
-sudo docker-compose up -d
-
-rm /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
-
-cat << EOF >> /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
-
-index
-images
-download
-2006
-news
-crack
-serial
-warez
-full
-12
-contact
-about
-search
-spacer
-privacy
-
-EOF
-
 cat << EOF >> /opt/run.sh
 
 #!/bin/bash
@@ -104,8 +60,6 @@ while true; do
 curl -s http://172.17.0.2:8000/
 sqlmap -u http://172.17.0.2:9000/ --batch
 ftp ftp://johndoe:123456@172.17.0.1
-
-
 ping -c1 172.17.0.2 
 
 done
