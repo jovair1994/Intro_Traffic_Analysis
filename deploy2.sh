@@ -17,6 +17,8 @@ wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/rdp.pcap -O /
 
 wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/image.pcap -O /home/kali/image.pcap
 
+wget https://github.com/jovair1994/Intro_Traffic_Analysis/raw/main/desafio.pcap -O /home/kali/desafio.pcap
+
 wget https://raw.githubusercontent.com/jovair1994/Intro_Traffic_Analysis/main/private.key -O /home/kali/private.key
 
 cat << EOF >> /etc/hosts 
